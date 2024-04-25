@@ -62,7 +62,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # '업무활동' 메뉴 클릭
-print(driver.page_source)
+test_button = driver.find_element(By.XPATH, '/html/body/div[2]/div[2]')
+test_button.click()
 
 # 브라우저 종료
 driver.quit()
