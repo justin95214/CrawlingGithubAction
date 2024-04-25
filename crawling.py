@@ -1,4 +1,19 @@
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')  # 브라우저를 머리없이 실행
+
+# ChromeDriverManager를 사용하여 ChromeDriver 설치
+service = Service(ChromeDriverManager().install())
+
+# 수정된 드라이버 생성 코드
+driver = webdriver.Chrome(service=service, options=options)
+
+
+"""
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
@@ -15,7 +30,6 @@ options.add_argument("--disable-dev-shm-usage")
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
-"""
 # 옵션 설정
 options = Options()
 options.add_argument("--headless")  # GUI 없이 실행
