@@ -62,14 +62,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # '업무활동' 메뉴 클릭
-# "업무활동" 링크의 title 속성 가져오기
-activity_link = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, "//a[@title='업무활동']"))
-)
-title = activity_link.get_attribute("title")
-
-# title 출력
-print("Title of the '업무활동' link is:", title)
+print(driver.page_source)
 
 # 브라우저 종료
 driver.quit()
