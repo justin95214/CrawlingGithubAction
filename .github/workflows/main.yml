@@ -14,5 +14,5 @@ jobs:
     - name : 파이썬 버전 출력
       run : python -V
     - name : 파이썬 파일 실행
-      run : python test.py
+      run : python crawling.py
     
