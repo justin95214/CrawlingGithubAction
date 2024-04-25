@@ -63,11 +63,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # '업무활동' 메뉴 클릭
 # 요소가 나타날 때까지 대기
-test_button = WebDriverWait(driver, 10).until(
-    EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]'))
-)
+work_button = driver.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div/div/ul/li[3]/a')
+work_button.click()
 
-test_button.click()
 
 # 브라우저 종료
 driver.quit()
