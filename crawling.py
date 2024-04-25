@@ -62,8 +62,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # '업무활동' 메뉴 클릭
+# iframe을 찾고 전환
+iframe = driver.find_element(By.TAG_NAME, 'iframe')
+driver.switch_to.frame(iframe)
+
+# iframe 내 요소 찾기
 test_button = driver.find_element(By.XPATH, '/html/body/div[2]/div[2]')
-test_button.click()
+
+# 메인 컨텐츠로 되돌리기
+driver.switch_to.default_content()
 
 # 브라우저 종료
 driver.quit()
