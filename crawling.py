@@ -55,8 +55,16 @@ work_activity_button = driver.find_element(By.XPATH, string_resource.work_activi
 work_activity_button.click()
 
 # 업무 일지
-work_daily_button = driver.find_element(By.XPATH, string_resource.work_daily)
-work_daily_button.click()
+# JavaScript 실행을 위한 스크립트 준비
+script = """
+var element = document.querySelector('a.tmOff');
+if (element) {
+    element.click();
+}
+"""
+
+# 스크립트 실행
+driver.execute_script(script)
 
 # 브라우저 종료
 driver.quit()
