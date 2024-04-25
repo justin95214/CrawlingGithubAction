@@ -71,7 +71,7 @@ driver.execute_script(script)
 links_selector = '#lnbInner > div > div > ul > li.lnb9 > a'
 links = driver.find_elements(By.CSS_SELECTOR, links_selector)
 
-print("주소: ", links.get_attribute("title"))
+print("주소: ", links.text)
 
 # 브라우저 종료
 driver.quit()
