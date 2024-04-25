@@ -48,7 +48,13 @@ login_button.click()
 
 print(driver.title.encode('cp850', 'replace').decode('cp850'))
 print('login completed!!')
+
 # 로그인 후 처리할 작업
+work_activity_button = driver.find_element(By.XPATH, string_resource.work_activity)
+work_activity_button.click()
+
+# 업무 일지
+
 
 # 브라우저 종료
 driver.quit()
