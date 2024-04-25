@@ -6,7 +6,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import string_resource
 
+from webdriver_manager.chrome import ChromeDriverManager
 
+options = webdriver.ChromeOptions()
+options.add_argument('--headless')  # 브라우저를 머리없이 실행
+
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
+"""
 # 옵션 설정
 options = Options()
 options.add_argument("--headless")  # GUI 없이 실행
@@ -51,7 +58,7 @@ print("Logged in page title:", driver.title)
 login_button = driver.find_element(By.XPATH, string_resource.test)
 login_button.click()
 print("업무 활동 탭")
-
+"""
 
 
 # 브라우저 종료
