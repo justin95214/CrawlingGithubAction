@@ -61,20 +61,30 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-
+from selenium.webdriver.common.action_chains import ActionChains
 # '업무활동' 메뉴 클릭
 # 요소가 나타날 때까지 대기
 try:
-    # 페이지의 JavaScript가 완료될 때까지 대기
+    # 페이지 로딩 대기
     WebDriverWait(driver, 10).until(
-        lambda driver: driver.execute_script('return document.readyState') == 'complete'
+        lambda d: d.execute_script('return document.readyState') == 'complete'
     )
 
-    # 이제 동적으로 생성된 요소에 대해 명시적 대기를 사용
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div/div/div/ul/li[3]/a'))
+    # 마우스를 올릴 요소를 찾기
+    menu = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div/div/div/ul/li[3]'))
     )
-    element.click()
+
+    # ActionChains을 사용하여 마우스 오버
+    ActionChains(driver).move_to_element(menu).perform()
+
+    # "업무일지" 링크가 나타날 때까지 대기 후 클릭
+    work_log = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.LINK_TEXT, "업무일지"))
+    )
+    work_log.click()
+
+    
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
 except NoSuchElementException:
