@@ -60,6 +60,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
 
 # '업무활동' 메뉴 클릭
 # 요소가 나타날 때까지 대기
