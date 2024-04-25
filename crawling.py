@@ -54,7 +54,8 @@ work_activity_button = driver.find_element(By.XPATH, string_resource.work_activi
 work_activity_button.click()
 
 # 업무 일지
-
+work_daily_button = driver.find_element(By.XPATH, string_resource.work_daily)
+work_daily_button.click()
 
 # 브라우저 종료
 driver.quit()
