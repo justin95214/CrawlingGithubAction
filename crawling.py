@@ -63,8 +63,23 @@ from selenium.webdriver.support import expected_conditions as EC
 
 # '업무활동' 메뉴 클릭
 # 요소가 나타날 때까지 대기
-work_button = driver.find_element(By.XPATH, '/html/body/div[2]/div[2]/div/div/div/ul/li[3]/a')
-work_button.click()
+try:
+    # 페이지의 JavaScript가 완료될 때까지 대기
+    WebDriverWait(driver, 10).until(
+        lambda driver: driver.execute_script('return document.readyState') == 'complete'
+    )
+
+    # 이제 동적으로 생성된 요소에 대해 명시적 대기를 사용
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div/div/div/ul/li[3]/a'))
+    )
+    element.click()
+except TimeoutException:
+    print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
+except NoSuchElementException:
+    print("요소를 찾을 수 없습니다.")
+finally:
+    driver.quit()
 
 
 # 브라우저 종료
