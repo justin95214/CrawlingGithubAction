@@ -56,14 +56,39 @@ print('login completed!!')
 #work_activity_button = driver.find_element(By.XPATH, string_resource.work_activity)
 #work_activity_button.click()
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+# '업무활동' 메뉴 클릭
+# 이 부분은 실제 웹사이트의 구조에 따라 달라질 수 있습니다.
+work_activity_link = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.LINK_TEXT, "업무활동"))
+)
+work_activity_link.click()
+
+# '업무일지' 링크 클릭
+# 업무일지 링크도 실제 웹사이트에서 사용하는 텍스트로 변경해야 합니다.
+work_diary_link = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.LINK_TEXT, "업무일지"))
+)
+work_diary_link.click()
+
+# 필요한 작업 수행
+
+# 드라이버 종료
+
+
+"""
 # 업무 일지
 # JavaScript 실행을 위한 스크립트 준비
-script = """
+script = 
 var element = document.querySelector('a.tmOff');
 if (element) {
     element.click();
 }
-"""
+
 
 # 스크립트 실행
 driver.execute_script(script)
@@ -72,6 +97,6 @@ links_selector = '#lnbInner > div > div > ul > li.lnb9 > a'
 links = driver.find_elements(By.CSS_SELECTOR, links_selector)
 
 print("주소: ", links.text)
-
+"""
 # 브라우저 종료
 driver.quit()
