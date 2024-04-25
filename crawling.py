@@ -2,11 +2,7 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 import string_resource
-import sys
-import io
 
-sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 
 options = webdriver.ChromeOptions()
@@ -24,8 +20,7 @@ driver = webdriver.Chrome(service=service, options=options)
 driver.get("http://www.nsgportal.net/")
 
 # 결과 출력
-print("Title of the page is:", driver.title)
-
+print("Title of the page is:", driver.title.encode('cp850', 'replace').decode('cp850'))
 
 # 콤보 박스에서 '농심엔지니어링' 선택
 company_select = Select(driver.find_element(By.XPATH, string_resource.nongshim_group_list))
@@ -46,7 +41,7 @@ login_button.click()
 print('login completed!!')
 # 로그인 후 처리할 작업
 # 예: 페이지 타이틀 출력
-print("Logged in page title:", driver.title)
+print("Logged in page title:", driver.title.encode('cp850', 'replace').decode('cp850'))
 
 
 #업무 활동 탭
