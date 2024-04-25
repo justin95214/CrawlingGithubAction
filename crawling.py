@@ -13,7 +13,7 @@ sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
 
 options = webdriver.ChromeOptions()
-#options.add_argument('--headless')  # 브라우저를 머리없이 실행
+options.add_argument('--headless')  # 브라우저를 머리없이 실행
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
