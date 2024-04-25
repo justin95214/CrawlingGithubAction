@@ -18,12 +18,14 @@ driver = webdriver.Chrome(service=service, options=options)
 
 # 웹사이트 접근
 driver.get("http://www.nsgportal.net/")
-
+print(driver.title.encode('cp850', 'replace').decode('cp850'))
 
 
 # 콤보 박스에서 '농심엔지니어링' 선택
 company_select = Select(driver.find_element(By.XPATH, string_resource.nongshim_group_list))
 company_select.select_by_visible_text('농심엔지니어링')
+
+
 
 # 아이디와 비밀번호 입력
 username = driver.find_element(By.XPATH,  string_resource.id_edit)
@@ -37,17 +39,9 @@ password.send_keys("j1995214!")
 login_button = driver.find_element(By.XPATH, string_resource.login_button)
 login_button.click()
 
+print(driver.title.encode('cp850', 'replace').decode('cp850'))
 print('login completed!!')
 # 로그인 후 처리할 작업
-
-
-
-
-# 브라우저 종료
-driver.quit()
-업무 활동 탭")
-
-
 
 # 브라우저 종료
 driver.quit()
