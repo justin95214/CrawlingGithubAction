@@ -19,8 +19,7 @@ driver = webdriver.Chrome(service=service, options=options)
 # 웹사이트 접근
 driver.get("http://www.nsgportal.net/")
 
-# 결과 출력
-print("Title of the page is:", driver.title.encode('cp850', 'replace').decode('cp850'))
+
 
 # 콤보 박스에서 '농심엔지니어링' 선택
 company_select = Select(driver.find_element(By.XPATH, string_resource.nongshim_group_list))
@@ -40,14 +39,8 @@ login_button.click()
 
 print('login completed!!')
 # 로그인 후 처리할 작업
-# 예: 페이지 타이틀 출력
-print("Logged in page title:", driver.title.encode('cp850', 'replace').decode('cp850'))
 
 
-#업무 활동 탭
-login_button = driver.find_element(By.XPATH, string_resource.test)
-login_button.click()
-print("업무 활동 탭")
 
 
 # 브라우저 종료
