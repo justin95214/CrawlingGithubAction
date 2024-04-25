@@ -68,17 +68,10 @@ if (element) {
 # 스크립트 실행
 driver.execute_script(script)
 
+links_selector = '#lnbInner > div > div > ul > li.lnb9 > a'
+links = driver.find_elements(By.CSS_SELECTOR, links_selector)
 
-
-eapp_link = WebDriverWait(driver, 20).until(
-    EC.presence_of_element_located(
-        (By.XPATH, "//a[contains(@onclick, '업무일지')]"))
-)
-
-# 링크의 JavaScript onclick 이벤트 실행
-driver.execute_script("arguments[0].click();", eapp_link)
-
-
+print("주소: ", link.get_attribute("title"))
 
 # 브라우저 종료
 driver.quit()
