@@ -9,7 +9,9 @@ import string_resource
 from webdriver_manager.chrome import ChromeDriverManager
 
 options = webdriver.ChromeOptions()
-options.add_argument('--headless')  # 브라우저를 머리없이 실행
+options.add_argument("--headless")  # GUI 없이 실행
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 
 driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
