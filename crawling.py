@@ -65,18 +65,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 # '업무활동' 메뉴 클릭
 # 요소가 나타날 때까지 대기
 try:
-    # 페이지 로딩 대기
-    WebDriverWait(driver, 10).until(
-        lambda d: d.execute_script('return document.readyState') == 'complete'
-    )
-
-    # 마우스를 올릴 요소를 찾기
-    menu = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div/div/div'))
-    )
-
-    # ActionChains을 사용하여 마우스 오버
-    ActionChains(driver).move_to_element(menu).perform()
+    # 새 탭을 열고 싶은 경우, Body에서 Control + T를 보내기
+    driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.CONTROL + 't')
+    
+    # 새로 열린 탭으로 이동
+    driver.switch_to.window(driver.window_handles[1])
+    
+    # 새 탭에서 다른 웹 사이트 열기
+    driver.get("http://www.nsgportal.net/ekp/workDiary/workDiary.do?cmd=eng_wd_write")
     
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
