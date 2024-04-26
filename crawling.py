@@ -72,7 +72,7 @@ try:
 
     # 마우스를 올릴 요소를 찾기
     menu = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div/div/div/ul/li[3]'))
+        EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div/div/div'))
     )
 
     # ActionChains을 사용하여 마우스 오버
