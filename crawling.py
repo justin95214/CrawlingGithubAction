@@ -44,7 +44,7 @@ password = driver.find_element(By.XPATH, string_resource.ps_edit)
 print('login in')
 username.send_keys("2022037")
 password.send_keys("j1995214!")
-https://github.com/justin95214/CrawlingGithubAction/blob/main/crawling.py
+
 # 로그인 버튼 클릭
 login_button = driver.find_element(By.XPATH, string_resource.login_button)
 login_button.click()
