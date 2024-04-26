@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
 import sys
 import io
 
@@ -66,7 +67,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 # 요소가 나타날 때까지 대기
 try:
     # 새 탭을 열고 싶은 경우, Body에서 Control + T를 보내기
-    driver.send_keys(Keys.CONTROL + 't')
+    driver.find_element(By.ID, 'mainBody').send_keys(Keys.CONTROL + 't')
     
     # 새로 열린 탭으로 이동
     driver.switch_to.window(driver.window_handles[1])
