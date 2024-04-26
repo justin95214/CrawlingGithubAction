@@ -44,7 +44,7 @@ password = driver.find_element(By.XPATH, string_resource.ps_edit)
 print('login in')
 username.send_keys("2022037")
 password.send_keys("j1995214!")
-
+https://github.com/justin95214/CrawlingGithubAction/blob/main/crawling.py
 # 로그인 버튼 클릭
 login_button = driver.find_element(By.XPATH, string_resource.login_button)
 login_button.click()
@@ -66,7 +66,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 # 요소가 나타날 때까지 대기
 try:
     # 새 탭을 열고 싶은 경우, Body에서 Control + T를 보내기
-    driver.find_element(By.TAG_NAME, 'body').send_keys(Keys.CONTROL + 't')
+    driver.send_keys(Keys.CONTROL + 't')
     
     # 새로 열린 탭으로 이동
     driver.switch_to.window(driver.window_handles[1])
