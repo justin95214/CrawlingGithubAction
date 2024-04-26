@@ -77,13 +77,6 @@ try:
 
     # ActionChains을 사용하여 마우스 오버
     ActionChains(driver).move_to_element(menu).perform()
-
-    # "업무일지" 링크가 나타날 때까지 대기 후 클릭
-    work_log = WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.LINK_TEXT, "업무일지"))
-    )
-    work_log.click()
-
     
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
