@@ -136,7 +136,7 @@ try:
     print('selected project name')
 
     #업무 일지 이동
-
+    driver.switch_to.window(driver.window_handles[1])
     #수행시간
     project_time = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/table[1]/tbody/tr[4]/td[1]/input')
     project_time.send_keys("8")
