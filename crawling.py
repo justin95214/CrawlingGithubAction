@@ -16,7 +16,7 @@ import openai
 
 
 # OpenAI API 키 설정
-openai.api_key = 'sk-proj-EJKl6GRfBELwlksjHjO3T3BlbkFJpycdLTo9f1Z36B3WkyVH'  # 실제 API 키로 변경해야 합니다.
+openai.api_key = ''  # 실제 API 키로 변경해야 합니다.
 
 # ChatGPT 모델과 대화하는 함수 정의
 def chat_with_gpt(prompt):
