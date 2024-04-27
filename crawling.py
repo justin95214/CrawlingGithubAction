@@ -12,6 +12,28 @@ import sys
 import io
 import time
 
+import openai
+
+# OpenAI API 키 설정
+openai.api_key = 'your-api-key'  # 실제 API 키로 변경해야 합니다.
+
+# ChatGPT 모델과 대화하는 함수 정의
+def chat_with_gpt(prompt_text):
+    # OpenAI API를 통해 GPT-3 모델에 요청
+    response = openai.Completion.create(
+        engine="davinci",  # 사용 가능한 가장 강력한 엔진
+        prompt=prompt_text,
+        max_tokens=150  # 응답의 최대 길이 설정
+    )
+    # 응답 텍스트 반환
+    return response.choices[0].text.strip()
+
+# 대화 시작
+prompt = "Hello, who are you?"
+response_text = chat_with_gpt(prompt)
+print(response_text)
+
+
 sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
 
@@ -109,8 +131,6 @@ try:
     find_search = driver.find_element(By.XPATH,'/html/body/form/div/div[2]/fieldset/div[3]/input')
     find_search.click()
     
-
-    
     #코드 이름 클릭
     find_project_name = driver.find_element(By.XPATH,'/html/body/form/div/div[3]/table/tbody/tr/td[2]')
     find_project_name.click()
@@ -118,6 +138,18 @@ try:
     time.sleep(3)
     da = Alert(driver)
     da.accept()
+
+    print('selected project name')
+
+    #업무 일지 이동
+
+    #수행시간
+    project_time = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/table[1]/tbody/tr[4]/td[1]/input')
+    project_time.click()
+
+    #프로젝트 내용 
+    project_content = driver.find_element(By.XPATH, '/html/body')
+    project_content.send_keys("20240060")
 
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
