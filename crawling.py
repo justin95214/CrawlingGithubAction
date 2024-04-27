@@ -67,7 +67,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 # 요소가 나타날 때까지 대기
 try:
     # 새 탭을 열고 싶은 경우, Body에서 Control + T를 보내기
-    driver.excute_script("window.open('');")
+    driver.execute_script("window.open('');")
     
     # 새로 열린 탭으로 이동
     driver.switch_to.window(driver.window_handles[1])
