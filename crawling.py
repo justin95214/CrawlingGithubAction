@@ -63,6 +63,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.alert import Alert
+
+
 # '업무활동' 메뉴 클릭
 # 요소가 나타날 때까지 대기
 try:
@@ -97,6 +100,17 @@ try:
     project_window = driver.find_element(By.XPATH, '/html/body/form/div/div[1]/h3').text
     print(project_window)
 
+    #코드 입력
+    project_code = driver.find_element(By.XPATH, '/html/body/form/div/div[2]/fieldset/div[1]/input')
+    project_code.send_keys("20240060")
+
+    #코드 이름 클릭
+    find_project_name = driver.find_element(By.XPATH,'/html/body/form/div/div[3]/table/tbody/tr/td[2]')
+    find_project_name.click()
+
+    sleep(3)
+    da = Alert(driver)
+    da.accept()
 
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
