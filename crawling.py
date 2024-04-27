@@ -105,6 +105,12 @@ try:
     project_code.send_keys("20240060")
 
     #코드 이름 클릭
+    find_search = driver.find_element(By.XPATH,'/html/body/form/div/div[2]/fieldset/div[3]/input')
+    find_search.click()
+    
+
+    
+    #코드 이름 클릭
     find_project_name = driver.find_element(By.XPATH,'/html/body/form/div/div[3]/table/tbody/tr/td[2]')
     find_project_name.click()
 
