@@ -14,6 +14,7 @@ import time
 
 import openai
 
+
 # OpenAI API 키 설정
 openai.api_key = 'sk-proj-EJKl6GRfBELwlksjHjO3T3BlbkFJpycdLTo9f1Z36B3WkyVH'  # 실제 API 키로 변경해야 합니다.
 
@@ -25,10 +26,6 @@ def chat_with_gpt(prompt):
     )
     return response['choices'][0]['message']['content']
 
-# 대화 시작
-prompt = "Hello, who are you?"
-response_text = chat_with_gpt(prompt)
-print(response_text)
 
 
 sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
