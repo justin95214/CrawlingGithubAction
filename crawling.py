@@ -67,12 +67,13 @@ from selenium.webdriver.common.action_chains import ActionChains
 # 요소가 나타날 때까지 대기
 try:
     # 새 탭을 열고 싶은 경우, Body에서 Control + T를 보내기
-    driver.find_element(By.ID, 'mainBody').send_keys(Keys.CONTROL + 't')
+    driver.excute_script("window.open('');")
     
     # 새로 열린 탭으로 이동
     driver.switch_to.window(driver.window_handles[1])
     
     # 새 탭에서 다른 웹 사이트 열기
+    #https://www.nsgportal.net/ekp/workDiary/workDiary.do?cmd=eng_wd_write
     driver.get("http://www.nsgportal.net/ekp/workDiary/workDiary.do?cmd=eng_wd_write")
     
 except TimeoutException:
