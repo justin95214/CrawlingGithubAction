@@ -145,7 +145,7 @@ try:
     project_time.click()
 
     prompt_text = "vis 프로그램 테스트 및 머신러닝 의사결정 트리 알고리즘 개선에 대해서 2문장으로 요약해줘"
-    answer = chat_with_gpt(prompt_text)
+    answer = "1234"#chat_with_gpt(prompt_text)
     print(answer)
     
     #프로젝트 내용 
