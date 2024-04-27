@@ -21,6 +21,8 @@ jobs:
       run : pip install -r requirements.txt
     - name : openai 업그레이드
       run : pip install --upgrade openai
+    - name : openai migrate
+      run : openai migrate
 
     - name : 파이썬 파일 실행
       run : python crawling.py
