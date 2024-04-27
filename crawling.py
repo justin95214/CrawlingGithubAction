@@ -15,7 +15,7 @@ import time
 import openai
 
 # OpenAI API 키 설정
-openai.api_key = 'your-api-key'  # 실제 API 키로 변경해야 합니다.
+openai.api_key = 'sk-proj-EJKl6GRfBELwlksjHjO3T3BlbkFJpycdLTo9f1Z36B3WkyVH'  # 실제 API 키로 변경해야 합니다.
 
 # ChatGPT 모델과 대화하는 함수 정의
 def chat_with_gpt(prompt_text):
@@ -23,7 +23,7 @@ def chat_with_gpt(prompt_text):
     response = openai.Completion.create(
         engine="davinci",  # 사용 가능한 가장 강력한 엔진
         prompt=prompt_text,
-        max_tokens=150  # 응답의 최대 길이 설정
+        max_tokens=300  # 응답의 최대 길이 설정
     )
     # 응답 텍스트 반환
     return response.choices[0].text.strip()
@@ -147,9 +147,19 @@ try:
     project_time = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/table[1]/tbody/tr[4]/td[1]/input')
     project_time.click()
 
+    prompt_text = "vis 프로그램 테스트 및 머신러닝 의사결정 트리 알고리즘 개선에 대해서 2문장으로 요약해줘"
+    answer = chat_with_gpt(prompt_text)
+    print(answer)
+    
     #프로젝트 내용 
     project_content = driver.find_element(By.XPATH, '/html/body')
-    project_content.send_keys("20240060")
+    project_content.send_keys(answer)
+    print("내용 입력 완료")
+
+    #프로젝트 저장
+    project_save = driver.find_element(By.XPATH, '//*[@id="wrap"]/div[4]/a[1]')
+    project_save.click()
+    print("프로젝트 업무일지 저장")
 
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
