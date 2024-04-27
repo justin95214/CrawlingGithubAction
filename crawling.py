@@ -75,6 +75,11 @@ try:
     # 새 탭에서 다른 웹 사이트 열기
     #https://www.nsgportal.net/ekp/workDiary/workDiary.do?cmd=eng_wd_write
     driver.get("http://www.nsgportal.net/ekp/workDiary/workDiary.do?cmd=eng_wd_write")
+
+    # 로그인 버튼 클릭
+    work_title = driver.find_element(By.XPATH, '/html/body/div/div[1]/h3').text
+    print(work_title)
+
     
 except TimeoutException:
     print("요청한 요소를 찾는 데 시간이 너무 오래 걸립니다.")
