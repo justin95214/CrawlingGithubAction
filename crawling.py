@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.keys import Keys
 import sys
 import io
+import time
 
 sys.stdout = io.TextIOWrapper(sys.stdout.detach(), encoding='utf-8')
 sys.stderr = io.TextIOWrapper(sys.stderr.detach(), encoding='utf-8')
@@ -114,7 +115,7 @@ try:
     find_project_name = driver.find_element(By.XPATH,'/html/body/form/div/div[3]/table/tbody/tr/td[2]')
     find_project_name.click()
 
-    sleep(3)
+    time.sleep(3)
     da = Alert(driver)
     da.accept()
 
