@@ -18,15 +18,12 @@ import openai
 openai.api_key = 'sk-proj-EJKl6GRfBELwlksjHjO3T3BlbkFJpycdLTo9f1Z36B3WkyVH'  # 실제 API 키로 변경해야 합니다.
 
 # ChatGPT 모델과 대화하는 함수 정의
-def chat_with_gpt(prompt_text):
-    # OpenAI API를 통해 GPT-3 모델에 요청
-    response = openai.Completion.create(
-        engine="davinci",  # 사용 가능한 가장 강력한 엔진
-        prompt=prompt_text,
-        max_tokens=300  # 응답의 최대 길이 설정
+def chat_with_gpt(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # 선택한 모델로 교체
+        messages=[{"role": "user", "content": prompt}]
     )
-    # 응답 텍스트 반환
-    return response.choices[0].text.strip()
+    return response['choices'][0]['message']['content']
 
 # 대화 시작
 prompt = "Hello, who are you?"
