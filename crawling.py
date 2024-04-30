@@ -102,7 +102,7 @@ try:
 
     #프로젝트 제목 입력
     project_title = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/table[1]/tbody/tr[1]/td[1]/input')
-    project_title.send_keys("VIS 검사프로그램 개발")
+    project_title.send_keys("VIS 검사프로그램 개발")
 
     # 검색 버튼 클릭
     search_button = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/table[1]/tbody/tr[3]/td[1]/a[1]')
