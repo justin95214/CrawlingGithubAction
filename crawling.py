@@ -145,7 +145,7 @@ try:
     print(written_date.text)
 
     prompt_text = "vis 프로그램 테스트 및 머신러닝 의사결정 트리 알고리즘 개선에 대해서 2문장으로 요약해줘 "
-    answer = "오전에 설계미팅 및 양면 검사 장비 및 슈트형 검사 장비 형정으로 이송. 초분광 머신러닝 모델 시스템 CI/CD -docker, mlflow 설치 및 구동 적용 "#chat_with_gpt(prompt_text)
+    answer = " 초분광 머신러닝 모델 시스템 CI/CD -docker, mlflow 설치 및 구동 적용 "#chat_with_gpt(prompt_text)
     print(answer)
     
     #프로젝트 내용 
