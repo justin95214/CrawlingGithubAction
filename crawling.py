@@ -145,7 +145,7 @@ try:
     written_date = driver.find_element(By.XPATH, '/html/body/div/div[3]/form/table[1]/tbody/tr[1]/td[2]/input')
     print(written_date.text)
 
-    prompt_text = "vis 프로그램 테스트 및 머신러닝 의사결정 트리 알고리즘 개선에 대해서 2문장으로 요약해줘 "
+    prompt_text = "vis 프로그램 테스트 및 머신러닝 의사결정 트리 알고리즘 개선에 대해서 2문장으로 요약해줘r "
     answer = " 1231 "#chat_with_gpt(prompt_text)
     print(answer)
     
